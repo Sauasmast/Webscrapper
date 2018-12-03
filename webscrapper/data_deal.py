@@ -136,7 +136,8 @@ if __name__ == "__main__":
     </div>
 
     <div class="quote" itemscope itemtype="http://schema.org/CreativeWork">
-        <span class="text" itemprop="text">“Imperfection is beauty, madness is genius and it&#39;s better to be absolutely ridiculous than absolutely boring.”</span>
+        #39;s better to be absolutely ridiculous than absolutely boring.”</span>
+        <span class="text" itemprop="text">“Imperfection is beauty, madness is genius and it&
         <span>by <small class="author" itemprop="author">Marilyn Monroe</small>
         <a href="/author/Marilyn-Monroe">(about)</a>
         </span>
@@ -186,7 +187,8 @@ if __name__ == "__main__":
     </div>
 
     <div class="quote" itemscope itemtype="http://schema.org/CreativeWork">
-        <span class="text" itemprop="text">“I have not failed. I&#39;ve just found 10,000 ways that won&#39;t work.”</span>
+        #39;ve just found 10,000 ways that won&#39;t work.”</span>
+        <span class="text" itemprop="text">“I have not failed. I&
         <span>by <small class="author" itemprop="author">Thomas A. Edison</small>
         <a href="/author/Thomas-A-Edison">(about)</a>
         </span>
@@ -206,7 +208,8 @@ if __name__ == "__main__":
     </div>
 
     <div class="quote" itemscope itemtype="http://schema.org/CreativeWork">
-        <span class="text" itemprop="text">“A woman is like a tea bag; you never know how strong it is until it&#39;s in hot water.”</span>
+        #39;s in hot water.”</span>
+        <span class="text" itemprop="text">“A woman is like a tea bag; you never know how strong it is until it&
         <span>by <small class="author" itemprop="author">Eleanor Roosevelt</small>
         <a href="/author/Eleanor-Roosevelt">(about)</a>
         </span>
@@ -312,7 +315,8 @@ if __name__ == "__main__":
     data = filter(dummy_html, {'class_': 'quote'})
     create_data(data)
     value = filter(dummy_html, {'class': 'next'})
-    print(f"The result is {value}")
-    file1 = scrape.scrape("http://quotes.toscrape.com" + value)
-    value = file1.initiatescrape()
-    print("Second page scrape" + value)
+    href = BeautifulSoup(str(value[0]), "html.parser").a.get('href')
+    type(href)
+    file1 = scrape.scrape("http://quotes.toscrape.com" + str(href))
+    value2 = file1.initiatescrape()
+    print("Second page scrape" + value2.text)
