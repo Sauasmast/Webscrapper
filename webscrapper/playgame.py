@@ -36,6 +36,7 @@ class playgame():
         if self.quotation_list[num]['Author'] == user_ans:
             print("Well Done !!! Right Answer")
             self.score += 1
+            self.hint = 0
             self._continue()
         else:
             if self.hint < 2:
