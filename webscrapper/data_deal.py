@@ -7,9 +7,12 @@ import playgame as game
 # quotation_list = []
 
 
-def filter(text, attbrs):
+def filter(text, attbrs, gettext=False):
     soup = BeautifulSoup(text, "html.parser")
-    divs = soup.find_all(attrs=attbrs)
+    if gettext:
+        divs = soup.find(attrs=attbrs).get_text()
+    else:
+        divs = soup.find_all(attrs=attbrs)
     return divs
 
 
